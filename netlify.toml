@@ -1,9 +1,7 @@
 # ─────────────────────────────────────────
 #  ManaVahana — Netlify Deployment Config
 # ─────────────────────────────────────────
-
-[build]
-  publish = "."        # Root folder IS the published folder
+# No build step — purely static HTML/CSS/JS site.
 
 # ── Global security & performance headers ──
 [[headers]]
