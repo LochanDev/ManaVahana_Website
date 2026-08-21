@@ -1,0 +1,3 @@
+# Netlify _redirects file
+# Catch-all: serve index.html for any unmatched path (future-proof for sub-pages)
+/*    /index.html    200
