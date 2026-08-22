@@ -6,14 +6,19 @@ const scrollTo = (e, id) => {
   if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
 };
 
-export default function Footer() {
+export default function Footer({ onPrivacyClick }) {
   return (
     <footer id="footer-section">
       <div className="container">
         <div className="foot-g">
           <div>
-            <div className="f-brand-n">ManaVahana</div>
-            <div className="f-brand-te">మన వాహనం</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
+              <img src="/logo.png" alt="ManaVahana logo" style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
+              <div>
+                <div className="f-brand-n">ManaVahana</div>
+                <div className="f-brand-te">మన వాహనం</div>
+              </div>
+            </div>
             <p className="f-brand-d">Your Complete Smart Garage, Mileage Tracker &amp; Biometric Vehicle Locker. Built for Indian vehicle owners.</p>
           </div>
 
@@ -54,6 +59,15 @@ export default function Footer() {
 
         <div className="foot-b">
           <span className="foot-c">&#169; 2026 ManaVahana. All rights reserved.</span>
+          <button
+            onClick={onPrivacyClick}
+            id="footer-privacy-policy"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', font: 'inherit', color: 'rgba(255,255,255,.38)', fontSize: '13px', fontWeight: '500', transition: 'color .2s', padding: 0 }}
+            onMouseEnter={e => e.target.style.color = 'rgba(255,255,255,.75)'}
+            onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,.38)'}
+          >
+            Privacy Policy
+          </button>
           <span className="foot-tg">Your Vehicle. Your Data. Your Control.</span>
         </div>
       </div>

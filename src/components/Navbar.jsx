@@ -24,6 +24,7 @@ export default function Navbar() {
       <nav id="nav" className={scrolled ? 'scrolled' : ''}>
         <div className="nav-in">
           <a href="#hero" className="nbrand" onClick={(e) => scrollTo(e, '#hero')}>
+            <img src="/logo.png" alt="ManaVahana logo" style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
             <span className="nbrand-en">ManaVahana</span>
             <span className="nbrand-te">మన వాహనం</span>
           </a>
