@@ -1,7 +1,10 @@
 # ─────────────────────────────────────────
 #  ManaVahana — Netlify Deployment Config
 # ─────────────────────────────────────────
-# No build step — purely static HTML/CSS/JS site.
+
+[build]
+  command   = "npm run build"
+  publish   = "dist"
 
 # ── Global security & performance headers ──
 [[headers]]
@@ -13,19 +16,19 @@
     Referrer-Policy         = "strict-origin-when-cross-origin"
     Permissions-Policy      = "camera=(), microphone=(), geolocation=()"
 
-# ── Long-cache for screenshots (content-hashed in production) ──
+# ── Long-cache for screenshots ──
 [[headers]]
   for = "/screenshots/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# ── Cache HTML with revalidation ──
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+# ── SPA fallback ──
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
 
-# ── Redirects: force HTTPS ──
+# ── Force HTTPS ──
 [[redirects]]
   from   = "http://manavahana.netlify.app/*"
   to     = "https://manavahana.netlify.app/:splat"
